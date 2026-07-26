@@ -1,0 +1,18 @@
+{% extends "recommender/base.html" %}
+{% block content %}
+<h1>Songs</h1>
+
+<form method="get">
+  {{ form.as_p }}
+  <button type="submit">Search</button>
+</form>
+
+<ul>
+  {% for song in songs %}
+    <li>
+      <a href="{% url 'song_detail' song.id %}">{{ song.track_name }}</a>
+      by {{ song.artist.name }}
+    </li>
+  {% endfor %}
+</ul>
+{% endblock %}

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Spotify Manifold</title>
+</head>
+<body>
+    <nav>
+    <a href="{% url 'song_list' %}">All Songs</a> |
+    <a href="{% url 'embedding_map' %}">Embedding Map</a>
+</nav>
+    <hr>
+    {% block content %}
+    {% endblock %}
+</body>
+</html>

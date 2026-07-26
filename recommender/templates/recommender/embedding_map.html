@@ -1,0 +1,16 @@
+{% extends "recommender/base.html" %}
+{% load static %}
+{% block content %}
+<h1>Song Embedding Map</h1>
+<p>Click a point to see its nearest neighbors highlighted.</p>
+<div id="plot" style="width:900px;height:600px;"></div>
+<div id="selected-info"></div>
+
+{{ points|json_script:"points-data" }}
+
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+<script>
+  const points = JSON.parse(document.getElementById("points-data").textContent);
+</script>
+<script src="{% static 'recommender/plot.js' %}"></script>
+{% endblock %}
