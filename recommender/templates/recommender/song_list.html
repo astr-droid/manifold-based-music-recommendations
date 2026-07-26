@@ -1,17 +1,18 @@
 {% extends "recommender/base.html" %}
 {% block content %}
 <h1>Songs</h1>
+<p class="subtitle">{{ songs|length }} tracks in the manifold</p>
 
-<form method="get">
-  {{ form.as_p }}
+<form class="search" method="get">
+  {{ form.q }}
   <button type="submit">Search</button>
 </form>
 
-<ul>
+<ul class="song-grid">
   {% for song in songs %}
-    <li>
+    <li class="song-card">
       <a href="{% url 'song_detail' song.id %}">{{ song.track_name }}</a>
-      by {{ song.artist.name }}
+      <span class="artist">{{ song.artist.name }}</span>
     </li>
   {% endfor %}
 </ul>

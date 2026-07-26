@@ -3,13 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <title>Spotify Manifold</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'recommender/style.css' %}">
 </head>
 <body>
     <nav>
-    <a href="{% url 'song_list' %}">All Songs</a> |
-    <a href="{% url 'embedding_map' %}">Embedding Map</a>
-</nav>
-    <hr>
+        <a href="{% url 'song_list' %}">All Songs</a>
+        <a href="{% url 'embedding_map' %}">Embedding Map</a>
+    </nav>
     {% block content %}
     {% endblock %}
 </body>

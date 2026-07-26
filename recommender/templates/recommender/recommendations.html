@@ -1,7 +1,9 @@
 {% extends "recommender/base.html" %}
 {% block content %}
-<h1>Recommendations for {{ song.track_name }}</h1>
-<table border="1" cellpadding="6">
+<h1>Recommendations</h1>
+<p class="subtitle">Nearest neighbors to {{ song.track_name }} in latent space</p>
+
+<table class="rec-table">
   <tr><th>Track</th><th>Artist</th><th>Similarity</th><th>Distance</th></tr>
   {% for r in results %}
   <tr>

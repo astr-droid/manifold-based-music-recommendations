@@ -1,14 +1,16 @@
 {% extends "recommender/base.html" %}
 {% block content %}
 <h1>{{ song.track_name }}</h1>
-<p>Artist: {{ song.artist.name }}</p>
-<ul>
-  <li>Danceability: {{ song.danceability }}</li>
-  <li>Energy: {{ song.energy }}</li>
-  <li>Acousticness: {{ song.acousticness }}</li>
-  <li>Instrumentalness: {{ song.instrumentalness }}</li>
-  <li>Tempo: {{ song.tempo }}</li>
-  <li>Valence: {{ song.valence }}</li>
+<p class="subtitle">{{ song.artist.name }}</p>
+
+<ul class="feature-list">
+  <li>Danceability<strong>{{ song.danceability|floatformat:2 }}</strong></li>
+  <li>Energy<strong>{{ song.energy|floatformat:2 }}</strong></li>
+  <li>Acousticness<strong>{{ song.acousticness|floatformat:2 }}</strong></li>
+  <li>Instrumentalness<strong>{{ song.instrumentalness|floatformat:2 }}</strong></li>
+  <li>Tempo<strong>{{ song.tempo|floatformat:0 }}</strong></li>
+  <li>Valence<strong>{{ song.valence|floatformat:2 }}</strong></li>
 </ul>
-<a href="{% url 'recommend' song.id %}">Get Recommendations</a>
+
+<a class="cta" href="{% url 'recommend' song.id %}">Get Recommendations</a>
 {% endblock %}
